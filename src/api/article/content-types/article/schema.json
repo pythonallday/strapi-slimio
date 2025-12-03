@@ -13,21 +13,23 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
       "type": "text",
-      "maxLength": 80
+      "maxLength": 200
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
     "cover": {
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+      "allowedTypes": ["images"]
     },
     "author": {
       "type": "relation",
@@ -40,6 +42,23 @@
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "articles"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "seoImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "canonicalUrl": {
+      "type": "string"
+    },
+    "readingTime": {
+      "type": "integer",
+      "min": 1,
+      "max": 60
     },
     "blocks": {
       "type": "dynamiczone",
